@@ -1,0 +1,119 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{  
+    ViewData["Title"] = "Index";
+}
+
+@model IEnumerable<Entry> 
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card-deck">
+                <div class="card col-md-12 my-5 py-3">
+                    <div class="card-block">
+                        <h4 class="card-title">Time Entries</h4>
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <p class="card-text">
+                                    Administrate your time entries
+                                    <br />and allows you to log daily, weekly, or monthly work hours
+                                </p>
+                            </div>
+                            <div class="col-sm-4">
+                                <nav aria-label="breadcrumb w-25">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Time sheet</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card ctm-border-radius shadow-sm grow mx-auto table-striped">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col col-sm-3 text-left">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <div class="col-sm-9 col-xs-12 text-right">
+                            <div class="btn_group btn-group-sm">
+                                <a asp-controller="Time" asp-action="Create" title="Add entry" class="btn"><i class="fas fa-plus"></i></a>
+                                <button class="btn btn-default" title="Reload"><i class="fa fa-sync-alt"></i></button>
+                                <button class="btn btn-default" title="Pdf"><i class="fa fa-file-pdf"></i></button>
+                                <button class="btn btn-default" title="Excel"><i class="fas fa-file-excel"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="employee-office-table">
+                        <div class="table-responsive table-borderless">
+                            <table class="table custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Date</th>
+                                        <th>In Time</th>
+                                        <th>Out Time</th>
+                                        <th>Add Break</th>
+                                        <th class="text-right">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td> <a asp-controller="Time" asp-action="AddBreak" class="btn btn-sm" title="add Break"><i class="fas fa-plus"></i></a></td>
+                                        <td>
+                                            <div class="btn_group btn-group-sm">
+                                                <a asp-controller="Time" asp-action="ViewDetails" asp-route-id="" class="btn-sm btn" title="view"><i class="fas fa-eye"></i></a>
+                                                <a asp-controller="" asp-action="Update" asp-route-id="" class="btn-sm btn" title="edit"><i class="fas fa-edit"></i></a>
+                                                <a asp-controller="" asp-action="Delete" asp-route-id="" class="btn-sm btn" title="delete"><i class="fas fa-trash-alt"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card mb-4 my-5">
+                <div class="card-header">Breaks</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#!">No. of breaks taken today : 3</a></li>
+                                <li><a href="#!">Total break time : 1:00 Hr</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Side widget-->
+            <div class="card mb-4">
+                <div class="card-header">Status</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#!">Out time pending for the day!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div> 
