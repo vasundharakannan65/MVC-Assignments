@@ -18,6 +18,12 @@ namespace EntryTime.Controllers
         }
 
         [HttpGet]
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public IActionResult Index()
         {
             IEnumerable<Entry> entryList = _db.Entries;
