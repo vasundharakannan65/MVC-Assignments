@@ -10,11 +10,11 @@ namespace DA.Access
 {
     public class AccountDA
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
 
-        public AccountDA(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public AccountDA(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             this._userManager = userManager;
             this._signInManager = signInManager;
@@ -23,13 +23,23 @@ namespace DA.Access
 
         public async Task<IdentityResult> CreateUser(Register register)
         {
-            var user = new IdentityUser
+            var user = new ApplicationUser
             {
                 UserName = register.Email,
                 Email = register.Email
             };
 
             var result = await _userManager.CreateAsync(user, register.Password);
+
+            if(result.Succeeded && register.Admin == true)
+            {
+                await _userManager.AddToRoleAsync(user, "Administrator");
+            }
+            else
+            {
+                await _userManager.AddToRoleAsync(user, "Employee");
+            }
+
             return result;
         }
 

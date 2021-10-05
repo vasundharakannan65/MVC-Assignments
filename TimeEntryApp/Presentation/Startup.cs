@@ -1,6 +1,7 @@
 using BL.Logics;
 using DA.Access;
 using DA.Data;
+using DA.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,7 +35,7 @@ namespace Presentation
             Configuration.GetConnectionString("DefaultConnection")));
 
 
-            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.Password.RequiredLength = 8;
                 options.Password.RequireUppercase = false;

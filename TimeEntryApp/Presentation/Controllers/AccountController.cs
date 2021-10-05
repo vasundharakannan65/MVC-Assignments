@@ -15,9 +15,9 @@ namespace Presentation.Controllers
     {
         private readonly AccountBL _accountBL;
 
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public AccountController(AccountBL accountBL, SignInManager<IdentityUser> signInManager)
+        public AccountController(AccountBL accountBL, SignInManager<ApplicationUser> signInManager)
         {
             this._accountBL = accountBL;
             this._signInManager = signInManager;

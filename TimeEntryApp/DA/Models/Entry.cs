@@ -9,6 +9,10 @@ namespace DA.Models
 {
     public class Entry
     {
+        public Entry()
+        {
+            Breaks = new List<Break>();
+        }
 
         [Key]
         public int EntryID { get; set; }

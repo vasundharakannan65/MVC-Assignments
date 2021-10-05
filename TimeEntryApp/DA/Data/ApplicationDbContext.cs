@@ -10,13 +10,14 @@ using System.Threading.Tasks;
 
 namespace DA.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
         }
 
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Entry> Entries { get; set; }
         public DbSet<Break> Breaks { get; set; }
 

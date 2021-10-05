@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DA.Migrations
 {
-    public partial class Entry : Migration
+    public partial class Usermodelcreated : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,21 +44,6 @@ namespace DA.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Entries",
-                columns: table => new
-                {
-                    EntryID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    InTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    OutTime = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Entries", x => x.EntryID);
                 });
 
             migrationBuilder.CreateTable(
@@ -168,6 +153,28 @@ namespace DA.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Entries",
+                columns: table => new
+                {
+                    EntryID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    InTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    OutTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Entries", x => x.EntryID);
+                    table.ForeignKey(
+                        name: "FK_Entries_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Breaks",
                 columns: table => new
                 {
@@ -175,7 +182,7 @@ namespace DA.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     BreakIn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     BreakOut = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EntryID = table.Column<int>(type: "int", nullable: false)
+                    EntryID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -185,7 +192,7 @@ namespace DA.Migrations
                         column: x => x.EntryID,
                         principalTable: "Entries",
                         principalColumn: "EntryID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -231,6 +238,11 @@ namespace DA.Migrations
                 name: "IX_Breaks_EntryID",
                 table: "Breaks",
                 column: "EntryID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Entries_ApplicationUserId",
+                table: "Entries",
+                column: "ApplicationUserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -257,10 +269,10 @@ namespace DA.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Entries");
 
             migrationBuilder.DropTable(
-                name: "Entries");
+                name: "AspNetUsers");
         }
     }
 }

@@ -22,7 +22,7 @@ namespace DA.Models
         public DateTime BreakOut { get; set; }
 
 
-        public virtual Entry Entry { get; set; }
+        public Entry Entry { get; set; }
 
     }
 }
