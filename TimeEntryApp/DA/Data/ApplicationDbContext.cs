@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using DA.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,7 +17,8 @@ namespace DA.Data
 
         }
 
-        //public DbSet<Dish> Dishes { get; set; }
+        public DbSet<Entry> Entries { get; set; }
+        public DbSet<Break> Breaks { get; set; }
 
     }
 }

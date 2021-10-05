@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DA.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Presentation.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

@@ -788,3 +788,15 @@ E:\Gislen Software\MVC-Assignments\EntryTime\EntryTime\obj\Debug\net5.0\Razor\Vi
 E:\Gislen Software\MVC-Assignments\EntryTime\EntryTime\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 E:\Gislen Software\MVC-Assignments\EntryTime\EntryTime\obj\Debug\net5.0\Razor\Views\Admin\Create.cshtml.g.cs
 E:\Gislen Software\MVC-Assignments\EntryTime\EntryTime\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+D:\Project1\MVC-Assignments\EntryTime\EntryTime\obj\Debug\net5.0\EntryTime.csproj.AssemblyReference.cache
+D:\Project1\MVC-Assignments\EntryTime\EntryTime\obj\Debug\net5.0\EntryTime.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project1\MVC-Assignments\EntryTime\EntryTime\obj\Debug\net5.0\EntryTime.AssemblyInfoInputs.cache
+D:\Project1\MVC-Assignments\EntryTime\EntryTime\obj\Debug\net5.0\EntryTime.AssemblyInfo.cs
+D:\Project1\MVC-Assignments\EntryTime\EntryTime\obj\Debug\net5.0\EntryTime.csproj.CoreCompileInputs.cache
+D:\Project1\MVC-Assignments\EntryTime\EntryTime\obj\Debug\net5.0\EntryTime.MvcApplicationPartsAssemblyInfo.cs
+D:\Project1\MVC-Assignments\EntryTime\EntryTime\obj\Debug\net5.0\EntryTime.MvcApplicationPartsAssemblyInfo.cache
+D:\Project1\MVC-Assignments\EntryTime\EntryTime\obj\Debug\net5.0\EntryTime.RazorAssemblyInfo.cache
+D:\Project1\MVC-Assignments\EntryTime\EntryTime\obj\Debug\net5.0\EntryTime.RazorAssemblyInfo.cs
+D:\Project1\MVC-Assignments\EntryTime\EntryTime\obj\Debug\net5.0\EntryTime.dll
+D:\Project1\MVC-Assignments\EntryTime\EntryTime\obj\Debug\net5.0\ref\EntryTime.dll
+D:\Project1\MVC-Assignments\EntryTime\EntryTime\obj\Debug\net5.0\EntryTime.pdb

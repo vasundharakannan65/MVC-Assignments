@@ -1,0 +1,15 @@
+D:\Project1\MVC-Assignments\TimeEntryApp\DA\bin\Debug\net5.0\DA.deps.json
+D:\Project1\MVC-Assignments\TimeEntryApp\DA\bin\Debug\net5.0\DA.dll
+D:\Project1\MVC-Assignments\TimeEntryApp\DA\bin\Debug\net5.0\ref\DA.dll
+D:\Project1\MVC-Assignments\TimeEntryApp\DA\bin\Debug\net5.0\DA.pdb
+D:\Project1\MVC-Assignments\TimeEntryApp\DA\obj\Debug\net5.0\DA.csproj.AssemblyReference.cache
+D:\Project1\MVC-Assignments\TimeEntryApp\DA\obj\Debug\net5.0\DA.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project1\MVC-Assignments\TimeEntryApp\DA\obj\Debug\net5.0\DA.AssemblyInfoInputs.cache
+D:\Project1\MVC-Assignments\TimeEntryApp\DA\obj\Debug\net5.0\DA.AssemblyInfo.cs
+D:\Project1\MVC-Assignments\TimeEntryApp\DA\obj\Debug\net5.0\DA.csproj.CoreCompileInputs.cache
+D:\Project1\MVC-Assignments\TimeEntryApp\DA\obj\Debug\net5.0\DA.dll
+D:\Project1\MVC-Assignments\TimeEntryApp\DA\obj\Debug\net5.0\ref\DA.dll
+D:\Project1\MVC-Assignments\TimeEntryApp\DA\obj\Debug\net5.0\DA.pdb
+D:\Project1\MVC-Assignments\TimeEntryApp\DA\bin\Debug\net5.0\DA.runtimeconfig.json
+D:\Project1\MVC-Assignments\TimeEntryApp\DA\bin\Debug\net5.0\DA.runtimeconfig.dev.json
+D:\Project1\MVC-Assignments\TimeEntryApp\DA\obj\Debug\net5.0\DA.genruntimeconfig.cache

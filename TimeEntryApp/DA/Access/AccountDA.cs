@@ -25,6 +25,7 @@ namespace DA.Access
         {
             var user = new IdentityUser
             {
+                UserName = register.Email,
                 Email = register.Email
             };
 

@@ -16,14 +16,11 @@ namespace Presentation.Controllers
         private readonly AccountBL _accountBL;
 
         private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AccountController(AccountBL accountBL, SignInManager<IdentityUser> signInManager,
-            RoleManager<IdentityRole> roleManager)
+        public AccountController(AccountBL accountBL, SignInManager<IdentityUser> signInManager)
         {
             this._accountBL = accountBL;
             this._signInManager = signInManager;
-            this._roleManager = roleManager;
         }
 
         //
@@ -42,7 +39,7 @@ namespace Presentation.Controllers
                 var result = await _accountBL.CheckUser(model);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Dashboard", "Timesheet");
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
@@ -86,8 +83,7 @@ namespace Presentation.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         public IActionResult Index()

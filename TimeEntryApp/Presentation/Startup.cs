@@ -1,3 +1,5 @@
+using BL.Logics;
+using DA.Access;
 using DA.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,11 +38,15 @@ namespace Presentation
             {
                 options.Password.RequiredLength = 8;
                 options.Password.RequireUppercase = false;
-                options.Password.RequiredUniqueChars = 3;
                 options.Password.RequireNonAlphanumeric = false;
             })
             .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            services.AddScoped<AccountBL>();
+            services.AddScoped<AccountDA>();
+
+            services.AddScoped<TimesheetBL>();
+            services.AddScoped<TimesheetDA>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
