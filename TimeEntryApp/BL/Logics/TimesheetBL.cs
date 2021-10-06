@@ -19,10 +19,11 @@ namespace BL.Logics
             this._timesheetDA = timesheetDA;
         }
 
-        //public async Task<Entry> GetParticularIdEntries(string Id)
-        //{
-        //    var result = await _timesheetDA.
-        //}
+        public List<Entry> GetParticularIdEntries(ApplicationUser user)
+        {
+            var result =  _timesheetDA.GetParticularIdEntries(user).ToList();
+            return result; 
+        }
 
         public async Task<Entry> CreateEntry(Entry entry)
         {

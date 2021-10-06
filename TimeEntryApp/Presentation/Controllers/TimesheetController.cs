@@ -1,6 +1,7 @@
 ﻿using BL.Logics;
 using DA.Data;
 using DA.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,13 @@ namespace Presentation.Controllers
     {
         private readonly ApplicationDbContext _db;
         private readonly TimesheetBL _timesheetBL;
+        private readonly UserManager<ApplicationUser> _userManager; 
 
-        public TimesheetController(ApplicationDbContext db,TimesheetBL timesheetBL)
+        public TimesheetController(ApplicationDbContext db,TimesheetBL timesheetBL,UserManager<ApplicationUser> userManager)
         {
             this._db = db;
             this._timesheetBL = timesheetBL;
+            this._userManager = userManager;
         }
 
         [HttpGet]
@@ -28,25 +31,32 @@ namespace Presentation.Controllers
             return View();
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> Index()
-        //{
-        //    List<Entry> Entries = new List<Entry>();
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            List<Entry> Entries = new List<Entry>();
 
-        //    var paticularUserId  = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value; 
+            ApplicationUser user;
 
-        //    if(!ModelState.IsValid)
-        //    {
-        //        return RedirectToAction("Index");
-        //    } 
+            var paticularUserId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            if (paticularUserId != null) {
+               user =  await this._userManager.FindByIdAsync(paticularUserId);
+                if (!ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    Entries = _timesheetBL.GetParticularIdEntries(user);
+                }
+            }
+            //ApplicationUser user = new ApplicationUser();
+           
 
-        //    var result = await _timesheetBL.
+            return View(Entries);
+        }
 
 
-        //    return View();
-        //}
-
-        //
         //GET : /Timesheet/Create
         public IActionResult Create()
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DA.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,19 +9,10 @@ namespace Presentation.ViewModels
 {
     public class EntryBreak
     {
-        public int EntryID { get; set; }
-        public DateTime Date { get; set; }
+        public int ID { get; set; }
 
-        [DataType(DataType.Time)]
-        public DateTime InTime { get; set; }
+        public IList<Entry> Entries { get; set; }
 
-        [DataType(DataType.Time)]
-        public DateTime OutTime { get; set; }
-
-        [DataType(DataType.Time)]
-        public DateTime BreakIn { get; set; }
-
-        [DataType(DataType.Time)]
-        public DateTime BreakOut { get; set; }
+        public IList<Break> Break { get; set; }
     }
 }
