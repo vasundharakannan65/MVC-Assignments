@@ -18,14 +18,13 @@ namespace BL.Logics
         }
         public Task<IdentityResult> CreateUser(Register register)
         {
-            var result = _accountDA.CreateUser(register);
-            return result;
+            return _accountDA.CreateUser(register);
         }
 
         public Task<SignInResult> CheckUser(Login login)
         {
-            var result = _accountDA.CheckUser(login);
-            return result;
+            return _accountDA.CheckUser(login);
         }
+
     }
 }

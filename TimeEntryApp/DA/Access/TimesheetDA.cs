@@ -18,6 +18,18 @@ namespace DA.Access
             _db = db;
         }
 
+        //public async Task<Entry> GetParticularIdEntries(string Id)
+        //{
+        //    var result = from t1 in _db.Entries
+        //                 join t2 in _db.ApplicationUsers 
+        //                 on t1. 
+
+        //    var res = _db.Entry(Id).Collection(x => x.Entries).Load();
+        //    //_applicationDbContext.Entry(user).Collection(x => x.EmployeeEntries).Load();
+
+        //    return result;
+        //}
+
         public async Task<Entry> CreateEntry(Entry entry)
         {
             await _db.Entries.AddAsync(entry);

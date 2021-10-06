@@ -1,4 +1,5 @@
 ﻿using DA.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -57,5 +58,6 @@ namespace DA.Access
             var res = SignInResult.Failed;
             return res;
         }
+
     }
 }

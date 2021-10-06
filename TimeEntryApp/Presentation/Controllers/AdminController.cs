@@ -36,7 +36,7 @@ namespace Presentation.Controllers
             var roleExist = await this._roleManager.RoleExistsAsync(role.RoleName);
             if (!roleExist)
             {
-                var result = await this._roleManager.CreateAsync(new IdentityRole(role.RoleName));
+               await this._roleManager.CreateAsync(new IdentityRole(role.RoleName));
             }
             return View();
         }

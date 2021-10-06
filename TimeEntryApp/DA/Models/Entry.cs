@@ -29,6 +29,8 @@ namespace DA.Models
         public DateTime OutTime { get; set; }
 
         [Display(Name = "User Id")]
-        public ICollection<Break> Breaks { get; set; }
+        public ICollection<Break> Breaks { get; set; } 
+
+
     }
 }

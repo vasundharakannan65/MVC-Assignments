@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Presentation.Controllers
@@ -23,16 +24,27 @@ namespace Presentation.Controllers
         [HttpGet]
         public IActionResult Dashboard()
         {
+            string userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
             return View();
         }
 
-        [HttpGet]
-        public IActionResult Index()
-        {
-            IEnumerable<Entry> entryList = _db.Entries;
+        //[HttpGet]
+        //public async Task<IActionResult> Index()
+        //{
+        //    List<Entry> Entries = new List<Entry>();
 
-            return View(entryList);
-        }
+        //    var paticularUserId  = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value; 
+
+        //    if(!ModelState.IsValid)
+        //    {
+        //        return RedirectToAction("Index");
+        //    } 
+
+        //    var result = await _timesheetBL.
+
+
+        //    return View();
+        //}
 
         //
         //GET : /Timesheet/Create
@@ -50,7 +62,7 @@ namespace Presentation.Controllers
                 return RedirectToAction("Index");
             }
 
-            var result = await _timesheetBL.CreateEntry(entry);
+            await _timesheetBL.CreateEntry(entry);
             return View(entry);
         }
 
@@ -79,7 +91,7 @@ namespace Presentation.Controllers
                 return RedirectToAction("Index");
             }
 
-            var result = await _timesheetBL.CreateBreak(@break);
+            await _timesheetBL.CreateBreak(@break);
             return View(@break);
         }
 
@@ -95,6 +107,8 @@ namespace Presentation.Controllers
             _timesheetBL.DeleteEntry(id);
             return RedirectToAction("Index");
 
-        }
+        } 
+
+
     }
 }
