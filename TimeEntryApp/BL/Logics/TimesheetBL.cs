@@ -19,27 +19,30 @@ namespace BL.Logics
             this._timesheetDA = timesheetDA;
         }
 
+        //Getting particular id entries
         public List<Entry> GetParticularIdEntries(ApplicationUser user)
         {
             var result =  _timesheetDA.GetParticularIdEntries(user).ToList();
             return result; 
         }
 
-        public async Task<Entry> CreateEntry(Entry entry)
+        //Creating Entry
+        public void CreateEntry(ApplicationUser user,Entry entry)
         {
-            var result = await _timesheetDA.CreateEntry(entry);
-            return result;
+            _timesheetDA.CreateEntry(user,entry);
         }
 
-        public async Task<Break> CreateBreak(Break @break)
+        //Creating Break
+        public void CreateBreak(ApplicationUser user,int id,Break @break)
         {
-            var result = await _timesheetDA.CreateBreak(@break);
-            return result;
+            _timesheetDA.CreateBreak(user,id,@break);
+
         }
 
-        public void DeleteEntry(int? id)
+        //Deleting entry
+        public void DeleteEntry(ApplicationUser user,int? id)
         {
-            _timesheetDA.DeleteEntry(id);
+            _timesheetDA.DeleteEntry(user,id);
         }
 
     }

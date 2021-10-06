@@ -20,11 +20,11 @@ namespace DA.Models
         [Required]
         public DateTime Date { get; set; }
 
-        [Required]
+
         [DataType(DataType.Time)]
         public DateTime InTime { get; set; }
 
-        [Required]
+
         [DataType(DataType.Time)]
         public DateTime OutTime { get; set; }
 

@@ -31,16 +31,20 @@ namespace Presentation.Controllers
             return View();
         }
 
+        //GET: /Timesheet/Index - Getting particular user id entries
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            List<Entry> Entries = new List<Entry>();
+            List<Entry> Entries = new();
 
             ApplicationUser user;
 
-            var paticularUserId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
-            if (paticularUserId != null) {
-               user =  await this._userManager.FindByIdAsync(paticularUserId);
+            var particularUserId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
+            if (particularUserId != null) 
+            {
+                user =  await this._userManager.FindByIdAsync(particularUserId);
+
                 if (!ModelState.IsValid)
                 {
                     return RedirectToAction("Index");
@@ -50,29 +54,41 @@ namespace Presentation.Controllers
                     Entries = _timesheetBL.GetParticularIdEntries(user);
                 }
             }
-            //ApplicationUser user = new ApplicationUser();
-           
 
+           
             return View(Entries);
         }
 
 
-        //GET : /Timesheet/Create
+        //GET : /Timesheet/Create - create entry
         public IActionResult Create()
         {
             return View();
         }
 
-        //POST : /Timesheet/Create
+        //POST : /Timesheet/Create - create entry
         [HttpPost]
         public async Task<IActionResult> Create(Entry entry)
-        {   
-            if (!ModelState.IsValid)
+        {
+
+            ApplicationUser user;
+
+            var particularUserId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
+            if (particularUserId != null)
             {
-                return RedirectToAction("Index");
+                user = await this._userManager.FindByIdAsync(particularUserId);
+
+                if (!ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    _timesheetBL.CreateEntry(user,entry);
+                }
             }
 
-            await _timesheetBL.CreateEntry(entry);
             return View(entry);
         }
 
@@ -94,14 +110,26 @@ namespace Presentation.Controllers
 
         //POST: /Timesheet/AddBreak
         [HttpPost]
-        public async Task<IActionResult> AddBreak(Break @break)
+        public async Task<IActionResult> AddBreak(int id,Break @break)
         {
-            if (!ModelState.IsValid)
+            ApplicationUser user;
+
+            var particularUserId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
+            if (particularUserId != null)
             {
-                return RedirectToAction("Index");
+                user = await this._userManager.FindByIdAsync(particularUserId);
+
+                if (!ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    _timesheetBL.CreateBreak(user, id, @break);
+                }
             }
 
-            await _timesheetBL.CreateBreak(@break);
             return View(@break);
         }
 
@@ -112,9 +140,25 @@ namespace Presentation.Controllers
         }
 
         //DELETE: /Timesheet/delete/:id
-        public IActionResult DeleteEntry(int? id)
+        public async Task<IActionResult> DeleteEntry(int? id)
         {
-            _timesheetBL.DeleteEntry(id);
+            ApplicationUser user;
+
+            var particularUserId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
+            if (particularUserId != null)
+            {
+                user = await this._userManager.FindByIdAsync(particularUserId);
+
+                if (!ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    _timesheetBL.DeleteEntry(user, id);
+                }
+            } 
             return RedirectToAction("Index");
 
         } 

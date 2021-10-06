@@ -90,4 +90,3 @@ D:\Project1\MVC-Assignments\TimeEntryApp\Presentation\obj\Debug\net5.0\Razor\Vie
 D:\Project1\MVC-Assignments\TimeEntryApp\Presentation\obj\Debug\net5.0\Razor\Views\Timesheet\Index.cshtml.g.cs
 D:\Project1\MVC-Assignments\TimeEntryApp\Presentation\obj\Debug\net5.0\Razor\Views\Timesheet\ViewDetails.cshtml.g.cs
 D:\Project1\MVC-Assignments\TimeEntryApp\Presentation\obj\Debug\net5.0\Razor\Views\Admin\CreateRole.cshtml.g.cs
-D:\Project1\MVC-Assignments\TimeEntryApp\Presentation\obj\Debug\net5.0\Razor\Views\Account\GettingId.cshtml.g.cs

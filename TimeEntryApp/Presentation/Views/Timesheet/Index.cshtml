@@ -72,7 +72,7 @@
                                             <td width="15%">@item.Date.ToString("dd/MM/yyyy")</td>
                                             <td width="15%">@item.InTime.ToString("hh:mm")</td>
                                             <td width="15%">@item.OutTime.ToString("hh:mm")</td>
-                                            <td width="20%"> <a asp-controller="Timesheet" asp-action="AddBreak" class="btn btn-sm" title="add Break"><i class="fas fa-plus"></i></a></td>
+                                            <td width="20%"><a asp-controller="Timesheet" asp-action="AddBreak" asp-route-id="@item.EntryID" class="btn btn-sm" title="add Break"><i class="fas fa-plus"></i></a></td>
                                             <td width="30%">
                                                 <div class="btn_group btn-group-sm">
                                                     <a asp-controller="Timesheet" asp-action="ViewDetails" asp-route-id="" class="btn-sm btn" title="view"><i class="fas fa-eye"></i></a>
