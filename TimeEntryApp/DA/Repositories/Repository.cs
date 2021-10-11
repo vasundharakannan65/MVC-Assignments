@@ -1,0 +1,48 @@
+﻿using DA.Data;
+using DA.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DA.Repositories
+{
+    public class Repository<T> : IRepository<T> where T : class
+    {
+        private readonly ApplicationDbContext _db;
+
+        public Repository(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
+
+        public T Get(int id)
+        {
+            return _db.Set<T>().Find(id);
+        }
+
+        public IEnumerable<T> GetAll()
+        {
+            return _db.Set<T>().ToList();
+        }
+
+        public void Add(T entity)
+        {
+            _db.Set<T>().Add(entity);
+        }
+
+        public void Remove(T entity)
+        {
+            _db.Set<T>().Remove(entity);
+        }
+
+        public void Update(T entity)
+        {
+            _db.Update(entity);
+        }
+
+
+    }
+}

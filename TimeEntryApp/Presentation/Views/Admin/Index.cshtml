@@ -1,0 +1,143 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model IEnumerable<Entry>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card-deck">
+                <div class="card col-md-12 my-5 py-3">
+                    <div class="card-block">
+                        <h4 class="card-title">Analytical Dashboard</h4>
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <p class="card-text">
+                                    <br />Type of GUI which often provides 
+                                    at-a-glance views of key performance indicators relevant to a particular objective or business process.
+                                </p>
+                            </div>
+                            <div class="col-sm-4">
+                                <nav aria-label="breadcrumb w-25">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Admin Dashboard</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-deck col-md-12 my-2 align-content-center">
+                <div class="d-flex justify-content-between">
+                    <div class="card">
+                        <div class="card-title">
+                            <p class="statistics-title card-header">No. of Employees</p>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="rate-percentage">32.53%</h3>
+                            <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">
+                            <p class="statistics-title card-header">No. of Active Employees Today</p>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="rate-percentage">32.53%</h3>
+                            <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">
+                            <p class="statistics-title card-header">No. of Employees Absent Today</p>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="rate-percentage">32.53%</h3>
+                            <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">
+                            <p class="statistics-title card-header">No. of workers</p>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="rate-percentage">32.53%</h3>
+                            <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">
+                            <p class="statistics-title card-header">No. of Breaks</p>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="rate-percentage">32.53%</h3>
+                            <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card ctm-border-radius shadow-sm grow mx-auto table-striped">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col col-sm-3 text-left">
+                            <form asp-action="Index" asp-controller="Admin" method="get">
+                                <div class="form-group row">
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="date" name="dateValue">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="btn btn-primary btn-sm" type="submit" value="Submit">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="employee-office-table">
+                        <div class="table-responsive table-borderless">
+                            <table class="table custom-table text-center">
+                                <thead>
+                                    <tr>
+
+                                        <th>Total working time</th>
+                                        <th>In Time</th>
+                                        <th>Out Time</th>
+                                        <th>Break Count</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                                <td>@item.OutTime.Subtract(@item.InTime)</td>
+                                                <td>@item.InTime.ToString("hh:mm:ss")</td>
+                                                <td>@item.OutTime.ToString("hh:mm:ss")</td>
+                                                <td>@item.Breaks.Count()</td>
+
+                                        </tr>
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

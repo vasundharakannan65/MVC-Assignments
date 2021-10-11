@@ -17,7 +17,7 @@ namespace DA.Models
         [Key]
         public int EntryID { get; set; }
 
-        [Required]
+
         public DateTime Date { get; set; }
 
 

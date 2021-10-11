@@ -33,9 +33,9 @@ namespace BL.Logics
         }
 
         //Creating Break
-        public void CreateBreak(ApplicationUser user,int id,Break @break)
+        public void CreateBreak(int id,Break @break)
         {
-            _timesheetDA.CreateBreak(user,id,@break);
+            _timesheetDA.CreateBreak(id,@break);
 
         }
 
@@ -43,6 +43,19 @@ namespace BL.Logics
         public void DeleteEntry(ApplicationUser user,int? id)
         {
             _timesheetDA.DeleteEntry(user,id);
+        }
+
+        //Deleting break
+        public void DeleteBreak(int? id)
+        {
+            _timesheetDA.DeleteBreak(id);
+        }
+
+        //Based on Month entries of particular user 
+        public List<Entry> BasedOnMonth(ApplicationUser user,DateTime monthValue)
+        {
+            var result = _timesheetDA.BasedOnMonth(user, monthValue).ToList();
+            return result;
         }
 
     }

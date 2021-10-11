@@ -12,6 +12,10 @@ a {
     color: #0366d6;
 }
 
+table {
+    overflow-y: auto;
+}
+
 .btn {
     color: #fff;
     background-color: #5161ce;

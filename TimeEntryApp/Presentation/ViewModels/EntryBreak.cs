@@ -13,30 +13,27 @@ namespace Presentation.ViewModels
 
         public int EntryID { get; set; }
 
-        [Required]
         public DateTime Date { get; set; }
 
-        [Required]
-        [DataType(DataType.Time)]
-        public DateTime InTime { get; set; }
+        public TimeSpan InTime { get; set; }
 
-        [Required]
-        [DataType(DataType.Time)]
-        public DateTime OutTime { get; set; }
+        public TimeSpan OutTime { get; set; }
+
+        public TimeSpan TotalWorkingTime { get; set; }
 
         public IList<Entry> Entries { get; set; }
 
         public int BreakID { get; set; }
 
-        [Required]
-        [DataType(DataType.Time)]
-        public DateTime BreakIn { get; set; }
 
-        [Required]
-        [DataType(DataType.Time)]
-        public DateTime BreakOut { get; set; }
+        public TimeSpan BreakIn { get; set; }
 
 
-        public IList<Break> Break { get; set; }
+        public TimeSpan BreakOut { get; set; }
+
+
+        public TimeSpan TotalBreakTime { get; set; }
+
+        public IList<Break> Breaks { get; set; }
     }
 }

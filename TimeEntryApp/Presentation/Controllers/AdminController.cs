@@ -1,10 +1,12 @@
-﻿using DA.Models;
+﻿using BL.Logics;
+using DA.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Presentation.Controllers
@@ -13,16 +15,33 @@ namespace Presentation.Controllers
     public class AdminController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly AdminBL _adminBL;
 
-        public AdminController(RoleManager<IdentityRole> roleManager)
+        public AdminController(RoleManager<IdentityRole> roleManager,AdminBL adminBL)
         {
             this._roleManager = roleManager;
+            this._adminBL = adminBL;
         }
-        public IActionResult Index()
+
+        [HttpGet]
+        public IActionResult Index(DateTime dateValue)
         {
-            return View();
+
+            List<Entry> Entries = new();
+
+            if (!ModelState.IsValid)
+            {
+                 return RedirectToAction("Index");
+            }
+            else
+            {
+                Entries = _adminBL.BasedOnDate(dateValue);
+            }
+
+            return View(Entries);
         }
-        
+
+       
         //GET: /Account/CreateRole
         public IActionResult CreateRole()
         {

@@ -1,12 +1,12 @@
 ﻿
     @*For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860*@
 
-@{
+<!--@{
     ViewData["Title"] = "ViewDetails";
 }
 
 
-@model Presentation.ViewModels.EntryBreak
+@model DA.Models.ApplicationUser
 
 <div class="container">
     <div class="row justify-content-center">
@@ -16,62 +16,78 @@
                     <h3 class="mb-0">Details</h3>
                 </div>
                 <div class="card-body">
-                    <form asp-action="Create" method="post">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @foreach (var entry in Model.Entries)
+                    {
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label" asp-for="Date">Date</label>
+                            <label class="col-lg-3 col-form-label form-control-label" asp-for="@entry.Date">Date</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="date" asp-for="Date" readonly>
-                                <span asp-validation-for="Date" class="text-danger"></span>
+                                <input class="form-control" type="date" asp-for="@entry.Date" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label" asp-for="InTime">In-Time</label>
+                            <label class="col-lg-3 col-form-label form-control-label" asp-for="@entry.InTime">In-Time</label>
                             <div class="col-lg-9">
-                                <input class="form-control" asp-for="InTime" readonly>
-                                <span asp-validation-for="InTime" class="text-danger"></span>
+                                <input class="form-control" asp-for="@entry.InTime" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label" asp-for="OutTime">Out-Time</label>
+                            <label class="col-lg-3 col-form-label form-control-label" asp-for="@entry.OutTime">Out-Time</label>
                             <div class="col-lg-9">
-                                <input class="form-control" asp-for="OutTime" readonly>
-                                <span asp-validation-for="OutTime" class="text-danger"></span>
+                                <input class="form-control" asp-for="@entry.OutTime" readonly>
                             </div>
                         </div>
-                        <button class="btn btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                            Breaks Taken
-                        </button>
-                        <div class="collapse" id="collapseExample">
-                            <div class="card card-body">
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label" asp-for="BreakIn">Break-In</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" asp-for="BreakIn" readonly>
-                                        <span asp-validation-for="BreakIn" class="text-danger"></span>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label" asp-for="BreakOut">Break-Out</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" asp-for="BreakOut" readonly>
-                                        <span asp-validation-for="BreakOut" class="text-danger"></span>
-                                    </div>
+                        @foreach (var brk in entry.Breaks)
+                        {
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label" asp-for="@brk.BreakIn">Break-In</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" asp-for="@brk.BreakIn" readonly>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label"></label>
-                            <div class="col-lg-9">
-                                <input class="btn btn-secondary" type="reset" value="Back">
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label" asp-for="@brk.BreakOut">Break-Out</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" asp-for="@brk.BreakOut" readonly>
+                                </div>
                             </div>
+                        }
+                    }-->
+
+                    @*<button class="btn btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Breaks Taken
+        </button>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">*@
+                    @*@foreach (var item in ITempD)
+        {
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label" asp-for="@item.BreakIn">Break-In</label>
+                <div class="col-lg-9">
+                    <input class="form-control" asp-for="@item.BreakIn" readonly>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label" asp-for="@item.BreakOut">Break-Out</label>
+                <div class="col-lg-9">
+                    <input class="form-control" asp-for="@item.BreakOut" readonly>
+                </div>
+            </div>
+        }*@
+                    @*</div>
+        </div>*@
+
+                    <!--<div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label"></label>
+                        <div class="col-lg-9">
+                            <input class="btn btn-secondary" type="reset" value="Back">
                         </div>
-                    </form>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
 
 
