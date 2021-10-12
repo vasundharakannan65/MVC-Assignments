@@ -93,7 +93,7 @@
                                         <td width="25%">
                                             <div class="btn_group btn-group-sm">
                                                 <a asp-controller="Timesheet" asp-action="ViewDetails" asp-route-id="@item.EntryID" class="btn-sm btn" title="view"><i class="fas fa-eye"></i></a>
-                                                <a asp-controller="" asp-action="Update" asp-route-id="" class="btn-sm btn" title="edit"><i class="fas fa-edit"></i></a>
+                                                <a asp-controller="Timesheet" asp-action="UpdateEntry" asp-route-id="@item.EntryID" class="btn-sm btn" title="edit"><i class="fas fa-edit"></i></a>
                                                 <a asp-controller="Timesheet" asp-action="DeleteEntry" asp-route-id="@item.EntryID" 
                                                    onclick="return confirm('Are you sure to delete the entry?')" class="btn-sm btn" title="delete"><i class="fas fa-trash-alt"></i></a>
                                             </div>

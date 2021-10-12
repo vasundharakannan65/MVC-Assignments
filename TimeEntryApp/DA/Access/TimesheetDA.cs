@@ -86,6 +86,22 @@ namespace DA.Access
             _db.SaveChanges();
         }
 
+        //Updating entry - Returning particular Entry ID 
+        public Entry UpdateEntryID(int id)
+        {
+            var ety = _db.Entries.FirstOrDefault(x => x.EntryID == id);
+            return ety;
+        } 
+
+        //Updating entry
+        public void UpdateEntry(ApplicationUser user,Entry entry)
+        {
+            _db.Entries.Update(entry);
+
+            _db.SaveChanges();
+
+        } 
+
         //creating breaks
         public void CreateBreak(int id,Break @break)
         {
@@ -97,7 +113,6 @@ namespace DA.Access
         //deleting entry
         public void DeleteEntry(ApplicationUser user,int? id)
         {
-
             var entry = _db.Entries.FirstOrDefault(x => x.EntryID == id);
             if (entry != null)
             {

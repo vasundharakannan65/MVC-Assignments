@@ -179,6 +179,57 @@ namespace Presentation.Controllers
             return View();
         }
 
+        //
+        //GET: /Timesheet/UpdateEntry/:id - update entry
+        public async Task<IActionResult> UpdateEntry(int id)
+        {
+            ApplicationUser user;
+
+            var particularUserId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
+            if (particularUserId != null)
+            {
+                user = await this._userManager.FindByIdAsync(particularUserId);
+
+                if (!ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    var ety = _timesheetBL.UpdateEntryID(id);
+                    return View(ety);
+                }
+            }
+            return View();
+
+        }
+
+        //POST: /Timesheet/UpdateEntry
+        [HttpPost]
+        public async Task<IActionResult> UpdateEntry(Entry entry)
+        {
+            ApplicationUser user;
+
+            var particularUserId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
+            if (particularUserId != null)
+            {
+                user = await this._userManager.FindByIdAsync(particularUserId);
+
+                if (!ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    _timesheetBL.UpdateEntry(user,entry);
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
+
         //DELETE: /Timesheet/delete/:id - entry
         public async Task<IActionResult> DeleteEntry(int? id)
         {

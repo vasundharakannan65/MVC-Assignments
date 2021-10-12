@@ -39,6 +39,21 @@ namespace BL.Logics
 
         }
 
+        //updating entry - Gettting ID
+        public Entry UpdateEntryID(int id)
+        {
+            var entry = _timesheetDA.UpdateEntryID(id);
+            return entry;
+        }
+
+        //updating entry - Gettting ID
+        public void UpdateEntry(ApplicationUser user,Entry entry)
+        {
+            _timesheetDA.UpdateEntry(user,entry);
+
+        }
+
+
         //Deleting entry
         public void DeleteEntry(ApplicationUser user,int? id)
         {

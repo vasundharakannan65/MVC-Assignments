@@ -17,19 +17,21 @@ namespace DA.Models
         [Key]
         public int EntryID { get; set; }
 
-
+        [Required]
         public DateTime Date { get; set; }
 
-
+        [Required]
         [DataType(DataType.Time)]
         public DateTime InTime { get; set; }
 
-
+        [Required]
         [DataType(DataType.Time)]
         public DateTime OutTime { get; set; }
 
-        [Display(Name = "User Id")]
+
         public ICollection<Break> Breaks { get; set; } 
+
+        public ApplicationUser ApplicationUser { get; set; }
 
 
     }
