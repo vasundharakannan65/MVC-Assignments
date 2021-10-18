@@ -20,7 +20,7 @@ namespace InterviewEvaluationApp.Repositories
         }
 
 
-        //CREATE
+        //CREATE CANDIDATE
         public void AddCandidate(Candidate candidate)
         {
             using IDbConnection dbConnection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
@@ -29,21 +29,20 @@ namespace InterviewEvaluationApp.Repositories
 
             DynamicParameters parameters = new();
 
-            parameters.AddDynamicParams(new
-            {
-                @Name = candidate.Name,
-                @ReferralName = candidate.ReferralName,                                              
-                @CurrentLastEmployer = candidate.CurrentLastEmployer,                                              
-                @CurrentLastDesignation = candidate.CurrentLastDesignation,                                              
-                @TotalExperience = candidate.TotalExperience,                                             
-                @NoticePeriod = candidate.NoticePeriod,                                              
-                @Sources = candidate.Sources,
-                @Others = candidate.Others,                                              
-                @HealthCondition = candidate.HealthCondition
-            });
+            parameters.Add("Name", candidate.Name);
+            parameters.Add("ReferralName",candidate.ReferralName);
+            parameters.Add("CurrentLastEmployer",candidate.CurrentLastEmployer);
+            parameters.Add("CurrentLastDesignation",candidate.CurrentLastDesignation);
+            parameters.Add("TotalExperience",candidate.TotalExperience);
+            parameters.Add("NoticePeriod",candidate.NoticePeriod);
+            parameters.Add("Sources",candidate.Sources);
+            parameters.Add("Others",candidate.Others);
+            parameters.Add("HealthCondition",candidate.HealthCondition);
+            parameters.Add("Designation",candidate.Designation);
+            parameters.Add("Resume",candidate.Resume);
 
-            SqlMapper.Execute(dbConnection, sp, commandType: CommandType.StoredProcedure,param: parameters);
-           
+            SqlMapper.Execute(dbConnection, sp, commandType: CommandType.StoredProcedure, param: parameters);
+
         }
 
         //GET ALL CANDIDATES
@@ -71,43 +70,50 @@ namespace InterviewEvaluationApp.Repositories
 
             return await Task.FromResult(dbConnection.Query<Candidate>(sp, parameters, commandType: CommandType.StoredProcedure).FirstOrDefault());
 
-            }
         }
 
-        ////UPDATE
-        //public void UpdateCandidate(Candidate candidate)
-        //{
-        //    using (IDbConnection dbConnection = Connection)
-        //    {
-        //        string sql = @"UPDATE CANDIDATE 
-        //                            SET 
-        //                            Name = @Name
-        //                            ,ReferralName = @ReferralName
-        //                            ,CurrentLastEmployer = @CurrentLastEmployer
-        //                            ,CurrentLastDesignation = @CurrentLastDesignation
-        //                            ,TotalExperience = @TotalExperience
-        //                            ,NoticePeriod = @NoticePeriod
-        //                            ,Sources = @Sources
-        //                            ,Others = @Others
-        //                            ,HealthCondition = @HealthCondition
-        //                            WHERE Id = @id";
 
-        //        dbConnection.Open();
-        //        dbConnection.Query<Candidate>(sql, candidate);
-        //    }
-        //}
+        //UPDATE
+        public void UpdateCandidate(int id,Candidate candidate)
+        {
+            using IDbConnection dbConnection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
 
-        ////DELETE
-        //public void DeleteCandidate(int id)
-        //{
-        //    using (IDbConnection dbConnection = Connection)
-        //    {
-        //        string sql = @"DELETE FROM CANDIDATE 
-        //                              WHERE Id = @id";
+            string sp = "[dbo].[SP_UpdateCandidate]";
 
-        //        dbConnection.Open();
-        //        dbConnection.Query<Candidate>(sql, new { Id = id });
-        //    }
-        //}
+            DynamicParameters parameters = new();
+
+            parameters.Add("Id", id);
+            parameters.Add("Name", candidate.Name);
+            parameters.Add("ReferralName", candidate.ReferralName);
+            parameters.Add("CurrentLastEmployer", candidate.CurrentLastEmployer);
+            parameters.Add("CurrentLastDesignation", candidate.CurrentLastDesignation);
+            parameters.Add("TotalExperience", candidate.TotalExperience);
+            parameters.Add("NoticePeriod", candidate.NoticePeriod);
+            parameters.Add("Sources", candidate.Sources);
+            parameters.Add("Others", candidate.Others);
+            parameters.Add("HealthCondition", candidate.HealthCondition);
+            parameters.Add("Designation", candidate.Designation);
+            parameters.Add("Resume", candidate.Resume);
+
+            SqlMapper.Execute(dbConnection, sp, commandType: CommandType.StoredProcedure, param: parameters);
+
+        }
+
+        //DELETE
+        public void DeleteCandidate(int id)
+        {
+            using IDbConnection dbConnection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+
+            string sp = "[dbo].[SP_DeleteCandidate]";
+
+            DynamicParameters parameters = new();
+
+            parameters.Add("@Id", id);
+
+            SqlMapper.Execute(dbConnection, sp, commandType: CommandType.StoredProcedure, param: parameters);
+
+        }
+
+    }
     
 }

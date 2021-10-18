@@ -33,12 +33,19 @@ namespace InterviewEvaluationApp.Models
         public string CurrentLastDesignation { get; set; }
         [Column(TypeName = "decimal(18, 0)")]
         public decimal TotalExperience { get; set; }
-        public int? NoticePeriod { get; set; }
+        public int NoticePeriod { get; set; }
         [StringLength(50)]
         public string Sources { get; set; }
         [StringLength(50)]
         public string Others { get; set; }
         public bool? HealthCondition { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string Designation { get; set; }
+        [Required]
+        [MaxLength(1)]
+        public byte[] Resume { get; set; }
+        public bool IsDeleted { get; set; }
 
         [InverseProperty(nameof(CandidateStatus.Candidate))]
         public virtual ICollection<CandidateStatus> CandidateStatuses { get; set; }

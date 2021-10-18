@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using InterviewEvaluationApp.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
+#nullable disable
 
 namespace InterviewEvaluationApp.Data
 {
@@ -18,19 +19,16 @@ namespace InterviewEvaluationApp.Data
         {
         }
 
-        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-        public  DbSet<Candidate> Candidates { get; set; }
-        public  DbSet<CandidateStatus> CandidateStatuses { get; set; }
-        public  DbSet<Interviewer> Interviewers { get; set; }
-        public  DbSet<InterviewerRating> InterviewerRatings { get; set; }
-        public  DbSet<Rating> Ratings { get; set; }
-        public  DbSet<Review> Reviews { get; set; }
-        public  DbSet<Round> Rounds { get; set; }
-        public  DbSet<Skill> Skills { get; set; }
-        public  DbSet<SkillRating> SkillRatings { get; set; }
-        public  DbSet<Status> Statuses { get; set; }
-
-
-    
+        public virtual DbSet<Candidate> Candidates { get; set; }
+        public virtual DbSet<CandidateStatus> CandidateStatuses { get; set; }
+        public virtual DbSet<Interviewer> Interviewers { get; set; }
+        public virtual DbSet<InterviewerRating> InterviewerRatings { get; set; }
+        public virtual DbSet<Rating> Ratings { get; set; }
+        public virtual DbSet<Review> Reviews { get; set; }
+        public virtual DbSet<Round> Rounds { get; set; }
+        public virtual DbSet<Skill> Skills { get; set; }
+        public virtual DbSet<SkillRating> SkillRatings { get; set; }
+        public virtual DbSet<Status> Statuses { get; set; }
+        
     }
 }

@@ -140,6 +140,11 @@ namespace InterviewEvaluationApp.Controllers
                     new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString())
                 };
 
+                foreach (var role in userRoles)
+                {
+                    authClaims.Add(new Claim(ClaimTypes.Role, role));
+                }
+
                 var authSignInKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
 
                 var token = new JwtSecurityToken(
@@ -155,8 +160,11 @@ namespace InterviewEvaluationApp.Controllers
                     token = new JwtSecurityTokenHandler().WriteToken(token)
                 });
 
+            } 
+            else
+            {
+                return Unauthorized();
             }
-            return Unauthorized();
         }
     }
 }

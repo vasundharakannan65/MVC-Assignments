@@ -26,6 +26,8 @@ namespace InterviewEvaluationApp.Models
         [Required]
         [StringLength(100)]
         public string InterviewerComments { get; set; }
+        [MaxLength(1)]
+        public byte[] Document { get; set; }
 
         [ForeignKey(nameof(CandidateStatusId))]
         [InverseProperty("Reviews")]

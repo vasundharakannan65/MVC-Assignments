@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace InterviewEvaluationApp.Controllers
 {
-    //[Authorize(Roles="HR")]
+    [Authorize(Roles="HR")]
     [Route("api/[controller]")]
     [ApiController]
     public class CandidateController : ControllerBase
@@ -24,39 +24,86 @@ namespace InterviewEvaluationApp.Controllers
 
         //GetAllCandidates
         [HttpGet]
-        public async Task<IEnumerable<Candidate>> GetAllCandidates()
-        {
-            return await _candidateRepository.GetAllCandidates();
+        public async Task<IActionResult> GetAllCandidates()
+        {   
+            try
+            {
+                var listOfCandidates = await _candidateRepository.GetAllCandidates();
+                return Ok(listOfCandidates);
+            } 
+            catch(Exception e)
+            {
+                return StatusCode(statusCode: 500, e.Message);
+            }
+
         }
 
         //GetCandidateByID 
         [HttpGet("{id}")]
-        public async Task<Candidate> GetCandidate(int id)
+        public async Task<IActionResult> GetCandidate(int id)
         {
-            return await _candidateRepository.GetCandidateById(id);
+            try
+            {
+                var candidate = await _candidateRepository.GetCandidateById(id);
+
+                if (candidate == null)
+                    return NotFound();
+                else
+                    return Ok(candidate);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(statusCode: 500, e.Message);
+            }
         }
 
         //Create
         [HttpPost]
         public void CreateCandidate([FromBody] Candidate candidate)
         {
-            _candidateRepository.AddCandidate(candidate);
+            try
+            {
+                _candidateRepository.AddCandidate(candidate);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
-        ////Update
-        //[HttpPut("{id}")]
-        //public void UpdateCandidate(int id,[FromBody]Candidate candidate)
-        //{
-        //    candidate.Id = id;
-        //    _candidateRepository.UpdateCandidate(candidate);
-        //} 
+        //Update
+        [HttpPut("{id}")]
+        public void UpdateCandidate(int id, [FromBody] Candidate candidate)
+        {
+            try
+            {
+                var result = _candidateRepository.GetCandidateById(id);
 
-        ////Delete
-        //[HttpDelete("{id}")]
-        //public void DeleteCandidate(int id)
-        //{
-        //    _candidateRepository.DeleteCandidate(id);
-        //}
+                if (result != null)
+                    _candidateRepository.UpdateCandidate(id, candidate);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        //Delete
+        [HttpDelete("{id}")]
+        public void DeleteCandidate(int id)
+        {
+            try
+            {
+                var result = _candidateRepository.GetCandidateById(id);
+
+                if (result != null)
+                    _candidateRepository.DeleteCandidate(id);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
 
 
     }
