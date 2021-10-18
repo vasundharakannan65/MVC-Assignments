@@ -1,11 +1,12 @@
 using InterviewEvaluationApp.Data;
+using InterviewEvaluationApp.Interfaces;
 using InterviewEvaluationApp.Models;
+using InterviewEvaluationApp.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -37,17 +38,17 @@ namespace InterviewEvaluationApp
             services.AddControllers();
 
             //ConnectionString
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
+            services.AddDbContext<CandidateInterviewEvaluationDBContext>(options => options.UseSqlServer(
             Configuration.GetConnectionString("DefaultConnection")));
 
-            //IdentityRoles
+            //Identity
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.Password.RequiredLength = 8;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
             })
-            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddEntityFrameworkStores<CandidateInterviewEvaluationDBContext>()
             .AddDefaultTokenProviders(); 
 
             //Authentication using JWT Tokens
@@ -76,6 +77,16 @@ namespace InterviewEvaluationApp
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "InterviewEvaluationApp", Version = "v1" });
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+            });
+
+            services.AddScoped<ICandidateRepository,CandidateRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

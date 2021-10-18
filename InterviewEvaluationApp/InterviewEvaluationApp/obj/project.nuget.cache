@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "eh6CsCGu9lfCr/1Ql6wFBXOMfH+RqHOTjigBQiTNyN29E5kmgBBVwfsr2OwKqe6Q9vEuV7cmGP4lIBE1ZaMMHw==",
+  "dgSpecHash": "KM0h9sLOhV8IHTV2qgJdrkAdE+WEMpjkNKSOGmV7svlrMRJiiJemKUI+IEG+FHX4JgLduu+QJX0MrNofxWDrRA==",
   "success": true,
   "projectFilePath": "C:\\Users\\vasundharask\\source\\repos\\InterviewEvaluationApp\\InterviewEvaluationApp\\InterviewEvaluationApp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\vasundharask\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\vasundharask\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\vasundharask\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\vasundharask\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

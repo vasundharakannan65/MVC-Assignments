@@ -27,6 +27,7 @@ namespace InterviewEvaluationApp.Models
         [Display(Name = "Confirm Password")]
         public string ConfirmPassword { get; set; }
 
-        public bool Admin { get; set; }
+        public bool HR { get; set; }
+
     }
 }

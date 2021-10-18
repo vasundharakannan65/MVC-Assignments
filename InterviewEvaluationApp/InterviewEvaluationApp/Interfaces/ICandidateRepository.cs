@@ -1,0 +1,16 @@
+﻿using InterviewEvaluationApp.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace InterviewEvaluationApp.Interfaces
+{
+    public interface ICandidateRepository
+    {
+        Task<IEnumerable<Candidate>> GetAllCandidates();
+        Task<Candidate> GetCandidateById(int id);
+        void AddCandidate(Candidate candidate);
+
+    }
+}

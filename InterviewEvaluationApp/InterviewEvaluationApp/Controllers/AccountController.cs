@@ -31,6 +31,48 @@ namespace InterviewEvaluationApp.Controllers
             this._configuration = configuration;
         }
 
+
+        [HttpPost]
+        [Route("RegisterAdmin")]
+        public async Task<IActionResult> RegisterAdmin([FromBody] Register register)
+        {
+            var userExist = await _userManager.FindByNameAsync(register.UserName);
+
+            if (userExist != null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "UserName is already exists!" });
+            }
+
+            ApplicationUser user = new()
+            {
+                UserName = register.UserName,
+                Email = register.Email,
+                SecurityStamp = Guid.NewGuid().ToString()
+
+            };
+
+            var result = await _userManager.CreateAsync(user, register.Password);
+
+            if (!result.Succeeded)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User Registration Failed!" });
+            }
+
+            if (!await _roleManager.RoleExistsAsync("Administrator"))
+            {
+                await _roleManager.CreateAsync(new IdentityRole("Administrator"));
+            }
+
+            if (await _roleManager.RoleExistsAsync("Administrator"))
+            {
+                await _userManager.AddToRoleAsync(user, "Administrator");
+            }
+
+            return Ok(new Response { Status = "Success", Message = "User has been registered successfully!" });
+
+
+        }
+
         [HttpPost]
         [Route("Register")]
         public async Task<IActionResult> Register([FromBody] Register register)
@@ -56,10 +98,28 @@ namespace InterviewEvaluationApp.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User Registration Failed!" });
             } 
+  
+            if(! await _roleManager.RoleExistsAsync("HR"))
+            {
+                 await _roleManager.CreateAsync(new IdentityRole("HR"));
+            }
+            if (!await _roleManager.RoleExistsAsync("Interviewer"))
+            {
+                await _roleManager.CreateAsync(new IdentityRole("Interviewer"));
+            }
+
+            if(register.HR == true)
+            {
+                await _userManager.AddToRoleAsync(user, "HR");
+            }
             else
             {
-                return Ok(new Response { Status = "Success", Message = "User has been registered successfully!" });
+                await _userManager.AddToRoleAsync(user, "Interviewer");
             }
+
+
+            return Ok(new Response { Status = "Success", Message = "User has been registered successfully!" });
+            
 
         }
 

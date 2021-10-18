@@ -63,3 +63,5 @@ C:\Users\vasundharask\source\repos\InterviewEvaluationApp\InterviewEvaluationApp
 C:\Users\vasundharask\source\repos\InterviewEvaluationApp\InterviewEvaluationApp\obj\Debug\net5.0\ref\InterviewEvaluationApp.dll
 C:\Users\vasundharask\source\repos\InterviewEvaluationApp\InterviewEvaluationApp\obj\Debug\net5.0\InterviewEvaluationApp.pdb
 C:\Users\vasundharask\source\repos\InterviewEvaluationApp\InterviewEvaluationApp\obj\Debug\net5.0\InterviewEvaluationApp.genruntimeconfig.cache
+C:\Users\vasundharask\source\repos\InterviewEvaluationApp\InterviewEvaluationApp\obj\Debug\net5.0\InterviewEvaluationApp.csproj.AssemblyReference.cache
+C:\Users\vasundharask\source\repos\InterviewEvaluationApp\InterviewEvaluationApp\bin\Debug\net5.0\Dapper.dll
