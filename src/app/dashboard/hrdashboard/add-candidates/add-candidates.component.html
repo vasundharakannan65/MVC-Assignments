@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="card card-outline-secondary">
+        <div class="card-header">
+          <h3 class="mb-0">Add new Candidate</h3>
+        </div>
+        <div class="card-body">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control form-control-sm" [(ngModel)]="data.name"/>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Referral Name</label>
+              <input type="text" class="form-control form-control-sm" [(ngModel)]="data.referralName"/>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Current/Last Employer</label>
+                <input type="text" class="form-control form-control-sm"  [(ngModel)]="data.currentLastEmployer"/>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Current/Last Designation</label>
+                <input type="text" class="form-control form-control-sm"  [(ngModel)]="data.currentLastDesignation">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Designation</label>
+                <input type="text" class="form-control form-control-sm"  [(ngModel)]="data.designation"/>
+              </div>
+              <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Resume</label>
+                <input type="file" class="form-control form-control-sm" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Total Experience</label>
+                <input type="number" step="any" class="form-control form-control-sm"  [(ngModel)]="data.totalExpierence">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Notice Period</label>
+                <input type="number" class="form-control form-control-sm"  [(ngModel)]="data.noticePeriod">
+              </div>
+              <div class="col-md-4 p-3">
+                <label class="form-label">Health Condition</label>
+                <input class="form-control form-check-input" type="checkbox"  [(ngModel)]="data.healthCondition">
+              </div>
+              <div class="col-md-6">
+                <label class="mb-0">Sources</label>
+              <textarea class="form-control form-control-sm" rows="3"
+               [(ngModel)]="data.sources"></textarea>
+            </div>
+            <div class="col-md-6">
+                <label class="mb-0">Others</label>
+              <textarea class="form-control form-control-sm" rows="3"
+               [(ngModel)]="data.others"></textarea>
+            </div>
+
+          </div>
+        </div> 
+        <div class="card-footer">
+            <div class="float-left">
+                <input class="btn btn-sm mx-3" id="buttons" type="reset" value="Save as draft"> 
+                <input class="btn btn-sm" id="buttons" type="reset" value="Back" routerLink="/main/HRDashboard"> 
+            </div>
+            <div class="float-right">
+                <input class="btn btn-sm" id="buttons" type="reset" value="Cancel"> 
+                <input class="btn btn-sm mx-3" (click)="addNewCandidate()" id="buttons" type="submit" value="Submit"/>
+            </div>
+        </div>
+      </div><!-- /form user info -->
+    </div>
+</div>

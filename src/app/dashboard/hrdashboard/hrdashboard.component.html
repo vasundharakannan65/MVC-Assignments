@@ -1,0 +1,195 @@
+<div class="container">
+  
+    <div class="card">
+      <div class="card-header">
+        <ul class="nav nav-pills" id="mytab" role="tablist">
+            <li class="nav-item mx-2" role="presentation">
+              <a class="nav-link active" class="btn-sm" aria-current="page" href="#"
+              data-bs-toggle="tab" role="tab" aria-selected="true" routerLink="/main/manageCandidates">Manage Candidates</a>
+            </li>
+            <li class="nav-item mx-2" role="presentation">
+              <a class="nav-link" href="#" class="btn-sm"
+              data-bs-toggle="tab" role="tab" aria-selected="true" routerLink="/main/scheduledInterviews">Scheduled Interviews</a>
+            </li> 
+            <li class="nav-item mx-2" role="presentation">
+              <a class="nav-link" href="#" class="btn-sm"
+              data-bs-toggle="tab" role="tab" aria-selected="false">Change Status</a>
+            </li>
+            <li class="nav-item mx-2" role="presentation">
+              <a class="nav-link" href="#" class="btn-sm" tabindex="-1" aria-disabled="true" routerLink="/main/addCandidate"
+              data-bs-toggle="tab" role="tab" aria-selected="false">Add Candidate</a>
+            </li>
+            <li class="nav-item mx-2" role="presentation">
+              <a class="nav-link" href="#" class="btn-sm" tabindex="-1" aria-disabled="true" routerLink="/main/assignInterviews"
+              data-bs-toggle="tab" role="tab" aria-selected="false">Assign Interviews</a>
+            </li>
+        </ul>        
+    </div> 
+    
+        <div class="card-body">
+          <ul class="nav nav-pills">
+            <li class="nav-item mx-2">
+                <button type="button btn-sm" class="btn btn-sm">All results</button>
+            </li>
+            <li class="nav-item mx-2">
+              <button type="button btn-sm" class="btn btn-sm">Show results</button>
+          </li>
+            <li class="nav-item mx-2">
+              <div class="search-box">
+                <input class="search-txt" type="text" name="">
+                <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
+              </div>
+            </li>
+          </ul>
+              <!-- <table id="example" class="table table-sm table-responsive table-borderless text-center p-2" style="width:100%">
+                <thead>
+                  <tr>
+                    <th scope="col" width="10%">#</th>
+                    <th scope="col" width="20%">Candidate Name</th>
+                    <th scope="col" width="15%">Overall Rating</th>
+                    <th scope="col" width="15%">Details</th> 
+                    <th scope="col" width="20%">Status</th>
+                    <th scope="col" width="25%">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                      <td>1</td>
+                      <td>Geetha</td>
+                      <td>4</td>
+                      <td><div class="btn-group">
+                        <button type="button" class="btn btn-sm" id="icons" (click)="openModal()"><i class="fas fa-eye" ></i></button></div> 
+                      </td> 
+                      
+                      <td class="dropdown">
+                          <form action="" name="ChangeStatus">
+                              <select name="status" >
+                                  <option value="Selected">Selected</option>
+                                  <option value="WaitingList">Waiting List</option>
+                                  <option value="Rejected">Rejected</option>
+                              </select>
+                          </form>
+                      </td>
+                      <td>
+                        <div class="btn-group">
+                          <button type="btn-sm" class="btn btn-sm" id="icons"><i class="fas fa-edit"></i></button>
+                        <button type="btn-sm" class="btn btn-sm inline" id="icons"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                      </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Raju</td>
+                    <td>3</td>
+                    <td><div class="btn-group">
+                      <button type="btn-sm" class="btn btn-sm" id="icons"><i class="fas fa-eye"></i></button></div>
+                    </td>
+                    <td class="dropdown">
+                      <form action="" name="ChangeStatus">
+                          <select name="status" >
+                              <option value="Selected">Selected</option>
+                              <option value="WaitingList">Waiting List</option>
+                              <option value="Rejected">Rejected</option>
+                          </select>
+                      </form>
+                  </td>
+                    <td>
+                      <div class="btn-group">
+                        <button type="btn-sm" class="btn btn-sm" id="icons"><i class="fas fa-edit"></i></button>
+                      <button type="btn-sm" class="btn btn-sm inline" id="icons"><i class="fas fa-trash-alt"></i></button>
+                      </div>
+                    </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Kavitha</td>
+                  <td>4.6</td>
+                  <td><div class="btn-group">
+                    <button type="btn-sm" class="btn btn-sm" id="icons"><i class="fas fa-eye"></i></button></div></td>
+                    <td class="dropdown">
+                      <form action="" name="ChangeStatus">
+                          <select name="status" >
+                              <option value="Selected">Selected</option>
+                              <option value="WaitingList">Waiting List</option>
+                              <option value="Rejected">Rejected</option>
+                          </select>
+                      </form>
+                  </td>
+                  <td>
+                    <div class="btn-group">
+                      <button type="btn-sm" class="btn btn-sm" id="icons"><i class="fas fa-edit"></i></button>
+                    <button type="btn-sm" class="btn btn-sm inline" id="icons"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                  </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Rahul</td>
+                <td>3.2</td>
+                <td><div class="btn-group">
+                  <button type="btn-sm" class="btn btn-sm" id="icons"><i class="fas fa-eye"></i></button></div></td>
+                  <td class="dropdown">
+                    <form action="" name="ChangeStatus">
+                        <select name="status" >
+                            <option value="Selected">Selected</option>
+                            <option value="WaitingList">Waiting List</option>
+                            <option value="Rejected">Rejected</option>
+                        </select>
+                    </form>
+                </td>
+                <td>
+                  <div class="btn-group">
+                    <button type="btn-sm" class="btn btn-sm" id="icons"><i class="fas fa-edit"></i></button>
+                  <button type="btn-sm" class="btn btn-sm inline" id="icons"><i class="fas fa-trash-alt"></i></button>
+                  </div>
+                </td>
+            </tr>
+                </tbody>
+            </table> -->
+            <div style="width: 100%">
+              <canvas id="canvas" height="100" width="300"></canvas>
+          </div>
+          <!-- <button id="randomizeData">Randomize Data</button> -->
+          </div>
+          <div class="card-footer">
+            <div class="float-right">
+              <div class="pagination">
+                <ul class="pagination-2">
+                  <li class="page-number prev"><a href="#">&laquo;</a></li>
+                  <li class="page-number"><a href="#">1</a></li>
+                  <li class="page-number active"><a href="#">2</a></li>
+                  <li class="page-number"><a href="#">3</a></li>
+                  <li class="page-number"><a href="#">4</a></li>
+                  <li class="page-number"><a href="#">5</a></li>
+                  <li class="page-number"><a href="#">6</a></li>
+                  <li class="page-number"><a href="#">7</a></li>
+                  <li class="page-number"><a href="#">8</a></li>
+                  <li class="page-number"><a href="#">9</a></li>
+                  <li class="page-number"><a href="#">10</a></li>
+                  <li class="page-number prev"><a href="#">&raquo;</a></li>
+                </ul>
+              </div>
+            </div>
+        </div>
+          
+    </div> 
+    
+</div> 
+
+<!--star Rate-->
+<!-- <div class="rate">
+  <input type="radio" id="star5" name="rate" value="5" />
+  <label for="star5" title="text">5 stars</label>
+  <input type="radio" id="star4" name="rate" value="4" />
+  <label for="star4" title="text">4 stars</label>
+  <input type="radio" id="star3" name="rate" value="3" />
+  <label for="star3" title="text">3 stars</label>
+  <input type="radio" id="star2" name="rate" value="2" />
+  <label for="star2" title="text">2 stars</label>
+  <input type="radio" id="star1" name="rate" value="1" />
+  <label for="star1" title="text">1 star</label>
+</div> -->
+
+
+
+

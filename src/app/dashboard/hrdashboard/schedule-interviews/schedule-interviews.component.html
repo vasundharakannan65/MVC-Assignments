@@ -1,0 +1,128 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="mb-0">Scheduled Interviews </h3>      
+  </div> 
+  
+      <div class="card-body">
+        <ul class="nav nav-pills">
+          <li class="nav-item mx-2">
+              <button type="button btn-sm" class="btn btn-sm">All results</button>
+          </li>
+          <li class="nav-item mx-2">
+            <button type="button btn-sm" class="btn btn-sm">Show results</button>
+        </li>
+          <li class="nav-item mx-2">
+            <div class="search-box">
+              <input class="search-txt" type="text" name="">
+              <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
+            </div>
+          </li>
+        </ul>
+            <table id="example" class="table table-sm table-responsive table-borderless text-center p-2" style="width:100%">
+              <thead>
+                <tr>
+                  <th scope="col" width="6%">#</th>
+                  <th scope="col" width="15%">Interviewer Name</th>
+                  <th scope="col" width="15%">Candidate Name</th>
+                  <th scope="col" width="15%">Assessment Name</th>
+                  <th scope="col" width="10%">Date</th> 
+                  <th scope="col" width="10%">Timing</th>
+                  <th scope="col" width="15%">Details</th>
+                  <th scope="col" width="15%">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Sugar</td>
+                    <td>Geetha</td>
+                    <td>Profile screening</td>
+                    <td>20/10/2021</td>
+                    <td>11:00 AM</td>
+                    <td><div class="btn-group">
+                      <button type="btn-sm" class="btn btn-sm" id="icons" (click)="openModal()"><i class="fas fa-eye"></i></button></div></td>
+                    <td>
+                      <div class="btn-group">
+                        <button type="btn-sm" class="btn btn-sm" id="icons"><i class="fas fa-edit"></i></button>
+                      <button type="btn-sm" class="btn btn-sm inline" id="icons"><i class="fas fa-trash-alt"></i></button>
+                      </div>
+                    </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Brownie</td>
+                  <td>Raju</td>
+                  <td>Telephonic interview</td>
+                  <td>19/10/2021</td>
+                  <td>10:30 AM</td>
+                  <td><div class="btn-group">
+                    <button type="btn-sm" class="btn btn-sm" id="icons"><i class="fas fa-eye"></i></button></div></td>
+                  <td>
+                    <div class="btn-group">
+                      <button type="btn-sm" class="btn btn-sm" id="icons"><i class="fas fa-edit"></i></button>
+                    <button type="btn-sm" class="btn btn-sm inline" id="icons"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                  </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Zafar</td>
+                <td>Kavitha</td>
+                <td>Profile screening</td>
+                <td>20/10/2021</td>
+                <td>03:00 PM</td>
+                <td><div class="btn-group">
+                  <button type="btn-sm" class="btn btn-sm" id="icons"><i class="fas fa-eye"></i></button></div></td>
+                <td>
+                  <div class="btn-group">
+                    <button type="btn-sm" class="btn btn-sm" id="icons"><i class="fas fa-edit"></i></button>
+                  <button type="btn-sm" class="btn btn-sm inline" id="icons"><i class="fas fa-trash-alt"></i></button>
+                  </div>
+                </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Shyam</td>
+              <td>Rahul</td>
+              <td>Technical system test</td>
+              <td>23/10/2021</td>
+              <td>09:00 AM</td>
+              <td><div class="btn-group">
+                <button type="btn-sm" class="btn btn-sm" id="icons"><i class="fas fa-eye"></i></button></div></td>
+              <td>
+                <div class="btn-group">
+                  <button type="btn-sm" class="btn btn-sm" id="icons"><i class="fas fa-edit"></i></button>
+                <button type="btn-sm" class="btn btn-sm inline" id="icons"><i class="fas fa-trash-alt"></i></button>
+                </div>
+              </td>
+          </tr>
+              </tbody>
+          </table>
+        </div>
+        <div class="card-footer">
+          <div class="float-left">
+            <input class="btn btn-sm" id="buttons" type="reset" value="Back" routerLink="/main/HRDashboard"> 
+          </div> 
+          <div class="float-right">
+            <div class="pagination">
+              <ul class="pagination-2">
+                <li class="page-number prev"><a href="#">&laquo;</a></li>
+                <li class="page-number"><a href="#">1</a></li>
+                <li class="page-number active"><a href="#">2</a></li>
+                <li class="page-number"><a href="#">3</a></li>
+                <li class="page-number"><a href="#">4</a></li>
+                <li class="page-number"><a href="#">5</a></li>
+                <li class="page-number"><a href="#">6</a></li>
+                <li class="page-number"><a href="#">7</a></li>
+                <li class="page-number"><a href="#">8</a></li>
+                <li class="page-number"><a href="#">9</a></li>
+                <li class="page-number"><a href="#">10</a></li>
+                <li class="page-number prev"><a href="#">&raquo;</a></li>
+              </ul>
+            </div>
+          </div>
+      </div>  
+  </div> 
+  
+</div> 

@@ -1,0 +1,183 @@
+<!-- <div class="wrapper" id="myApp">
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <div class="user-pic">
+              <img class="img-responsive img-rounded" src="./../assets/images/rose.jpg">
+            </div>
+            <div class="user-info">
+              <span class="user-name">John Paul</span><br>
+              <span class="user-role">HR/Interviewer </span><br>
+              <span class="user-role">o Online </span>
+            </div>
+        </div> 
+
+        <hr/>
+
+        <ul class="list-styled components">
+            <li class="">
+                <a href="#" class="" routerLink="/">Dashboard</a>                
+            </li>
+            <li>
+                <a href="#">Assessments</a>
+            </li>
+            <li>
+                <a href="#">Documents</a>
+            </li>
+            <li>
+                <a href="#">Surveys</a>
+            </li>
+            <li>
+                <a href="#">Performance</a>
+            </li>
+            <li>
+                <a href="#">Reporting</a>
+            </li>           
+        </ul>
+    </nav>
+
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+
+                <button onclick="ToggleSidebar()" type="button" id="sidebarCollapse" class="btn btn-sm">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" onclick="openFullscreen()" aria-current="page" id="icons" type="button" href="#"><i class="fas fa-expand"></i></a>
+                          </li>                       
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" id="icons" type="button" href="#"><i class="fas fa-user"></i></a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#" id="icons"><i class="fas fa-bell"></i></a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#" tabindex="-1" id="icons" aria-disabled="true"><i class="fas fa-cog"></i></a>
+                          </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+</div>   -->
+<div class="wrapper" id="myApp">
+  <nav id="sidebar">
+      <div class="sidebar-header">
+          <div class="user-pic">
+            <img class="img-responsive img-rounded" src="./../assets/images/rose.jpg">
+          </div>
+          <div class="user-info">
+            <span class="user-name">John Paul</span><br>
+            <span class="user-role">HR/Interviewer </span><br>
+            <span class="user-role">o Online </span>
+          </div>
+      </div> 
+
+      <hr/>
+
+      <ul class="list-styled components">
+          <li class="">
+              <a href="#" class="" routerLink="/main/HRDashboard">Dashboard</a>                
+          </li>
+          
+          <li class="" id="dropdown">
+            <a href="#" class="" data-toggle="collapse" href="#dropdown-lvl1">
+              Assessments <i class="fas fa-caret-down"></i>
+              <span class="caret"></span>
+            </a>
+            <!-- Dropdown level 1 -->
+            <div id="dropdown-lvl1" class="panel-collapse collapse">
+              <div class="panel-body">
+                <ul class="nav navbar-nav">
+                  <li>
+                    <a href="#" class="" routerLink="/main/profileScreening">Profile screening</a>
+                  </li> 
+                  <li>
+                    <a href="#" class="" routerLink="/main/telephonicInterview">Initial Telephonic Interview</a>
+                  </li>
+                  <li>
+                    <a href="#" class="" routerLink="/main/technicalTelephonicInterview">Technical Telephonic Interview</a>
+                  </li>
+                  <li>
+                    <a href="#" class="" routerLink="/main/technicalSystemTest">Technical System Test</a>
+                  </li>
+                  <li>
+                    <a href="#" class="" routerLink="/main/technicalF2FInterview">Technical F2F Interview</a>
+                  </li>
+                  <li>
+                    <a href="#" class="" routerLink="/main/finalF2F">Final F2F</a>
+                  </li>
+                </ul> 
+                
+              </div>  
+            </div> 
+          </li>
+          <li>
+              <a href="#">Documents</a>
+          </li>
+          <li>
+              <a href="#">Surveys</a>
+          </li>
+          <li>
+              <a href="#">Performance</a>
+          </li>
+          <li>
+              <a href="#">Reporting</a>
+          </li>           
+      </ul>
+      
+  </nav>
+
+  
+  <div id="content">
+
+      <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+
+              <button onclick="ToggleSidebar()" type="button" id="sidebarCollapse" class="btn btn-sm">
+                  <i class="fas fa-bars"></i>
+              </button>
+              
+              <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="fas fa-align-justify"></i>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="nav navbar-nav ml-auto">
+                      <li class="nav-item">
+                          <a class="nav-link active" onclick="openFullscreen()" id="icons" type="button" href="#"><i class="fas fa-expand"></i></a>
+                        </li>                       
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" id="icons" type="button" href="#"><i class="fas fa-user"></i></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#" id="icons"><i class="fas fa-bell"></i></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#" tabindex="-1" id="icons" aria-disabled="true"><i class="fas fa-cog"></i></a>
+                        </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+      
+      <router-outlet></router-outlet>
+
+  </div>
+
+</div> 
+
+

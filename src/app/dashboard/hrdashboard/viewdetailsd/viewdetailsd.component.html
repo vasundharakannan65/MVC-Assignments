@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="modal-header">
+        <h5 class="modal-title">Details</h5>
+        <button type="button" class="close" data-dismiss="modal" (click)="activeModal.close('dismiss')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="card p-2">
+            <p>Candidate Name: Geetha</p>
+            <p>Overall Rating: 4</p> 
+            <p>Pros: Productive & Smart</p> 
+            <p>Cons: None</p>
+            <p>Comments: Good</p>
+            <p>Document Link: <a href="./../../../../assets/files/resume.txt">Click here to open the document!</a></p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+            (click)="activeModal.close('close')">Close</button>
+    </div>
+</div>
